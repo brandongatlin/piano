@@ -5,14 +5,14 @@
 
 #grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "info" "piano";
+  grid-template-areas: ". info ." ". piano .";
 }
 
 #info {
   grid-area: info;
-  height: 50px;
+  height: 250px;
 }
 
 #piano {
@@ -30,8 +30,8 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 44vw;
-  position: fixed;
-  top: 50px;
+  position: relative;
+  top: -324px;
   left: 60px;
   z-index: 2;
 }

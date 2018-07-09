@@ -3,7 +3,12 @@ let soundArray = ['sounds/a1.wav', 'sounds/a1s.wav', 'sounds/b1.wav', 'sounds/c1
 let randomKey;
 let score = 0;
 
+let piano = $("#piano");
+piano[0].style.pointerEvents = 'none';
+
 function playSound(){
+  piano[0].style.pointerEvents = 'auto';
+
   randomKey = soundArray[Math.floor(Math.random() * soundArray.length)];
 
   let randomSound = new Audio(randomKey);
@@ -14,19 +19,16 @@ function playSound(){
   $(".key").removeClass('yellow');
 }
 
-$(".next").on("click", function(){
+$(".start").on("click", function(){
   playSound();
-})
+});
 
-$(".key").on("click", function(){
+  $(".key").on("click", function(){
   $(this).addClass('clicked');
-  // console.log('this', this);
 
-this.style.pointerEvents = 'none';
+  this.style.pointerEvents = 'none';
 
-
-
-let key = $(this).attr('src')
+  let key = $(this).attr('src')
 
   mySound = new Audio(key);
   mySound.play();
@@ -50,4 +52,4 @@ let key = $(this).attr('src')
     userClick[0].style.pointerEvents = 'auto';
 
   }, 2000);
-})
+});

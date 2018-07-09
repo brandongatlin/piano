@@ -3,15 +3,19 @@ let soundArray = ['sounds/a1.wav', 'sounds/a1s.wav', 'sounds/b1.wav', 'sounds/c1
 let randomKey;
 let score = 0;
 
-$(".next").on("click", function(){
-  $(".key").removeClass('red');
-  $(".key").removeClass('green');
-  $(".key").removeClass('yellow');
-
+function playSound(){
   randomKey = soundArray[Math.floor(Math.random() * soundArray.length)];
 
   let randomSound = new Audio(randomKey);
   randomSound.play();
+
+  $(".key").removeClass('red');
+  $(".key").removeClass('green');
+  $(".key").removeClass('yellow');
+}
+
+$(".next").on("click", function(){
+  playSound();
 })
 
 $(".key").on("click", function(){
@@ -30,12 +34,8 @@ $(".key").on("click", function(){
     $("#message").html('<li>noooooope!</li>');
     $(this).addClass('red');
 
-    console.log(randomKey);
-    console.log(key);
-
     let answer = $("div").find(`[src='${randomKey}']`);
-    console.log(answer);
     $(answer).addClass('yellow');
-
   }
+  setTimeout(function(){ playSound(); }, 2000);
 })

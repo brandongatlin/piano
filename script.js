@@ -20,7 +20,13 @@ $(".next").on("click", function(){
 
 $(".key").on("click", function(){
   $(this).addClass('clicked');
-  let key = $(this).attr('src')
+  // console.log('this', this);
+
+this.style.pointerEvents = 'none';
+
+
+
+let key = $(this).attr('src')
 
   mySound = new Audio(key);
   mySound.play();
@@ -37,5 +43,11 @@ $(".key").on("click", function(){
     let answer = $("div").find(`[src='${randomKey}']`);
     $(answer).addClass('yellow');
   }
-  setTimeout(function(){ playSound(); }, 2000);
+  setTimeout(function(){
+    playSound();
+
+    let userClick = $("div").find(`[src='${key}']`);
+    userClick[0].style.pointerEvents = 'auto';
+
+  }, 2000);
 })

@@ -4,31 +4,37 @@ let randomKey;
 let score = 0;
 
 $(".next").on("click", function(){
+  $(".key").removeClass('red');
+  $(".key").removeClass('green');
+  $(".key").removeClass('yellow');
+
   randomKey = soundArray[Math.floor(Math.random() * soundArray.length)];
 
   let randomSound = new Audio(randomKey);
-  // console.log("randomKey", randomKey);
   randomSound.play();
 })
 
 $(".key").on("click", function(){
-  let key = $(this).attr('value')
-  // console.log("key", key);
-  let clickedVal = `sounds/${key}.wav`;
-  // console.log('clickedVal', clickedVal);
-  $(this).attr('src', clickedVal);
+  let key = $(this).attr('src')
 
-  mySound = new Audio(clickedVal);
-  mySound.play()
+  mySound = new Audio(key);
+  mySound.play();
 
-  console.log(`${randomKey} ${clickedVal}`);
-
-
-  if(randomKey === clickedVal) {
+  if(randomKey === key) {
     $("#message").html('<li>yeah!!!</li>')
     score++
+    $(this).addClass('green');
     $("#score").text(score);
   } else {
-    $("#message").html('<li>noooooope!</li>')
+    $("#message").html('<li>noooooope!</li>');
+    $(this).addClass('red');
+
+    console.log(randomKey);
+    console.log(key);
+
+    let answer = $("div").find(`[src='${randomKey}']`);
+    console.log(answer);
+    $(answer).addClass('yellow');
+
   }
 })

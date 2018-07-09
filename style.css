@@ -36,6 +36,14 @@
   z-index: 2;
 }
 
+.key:hover {
+  background-color: red;
+}
+
+.key:active {
+  background-color: blue;
+}
+
 .ivory {
   border: .1em solid black;
   height: 16em;
@@ -44,7 +52,7 @@
 
 .ebony {
   border: .1em solid black;
-  background-color: red;
+  background-color: black;
   height: 10em;
   width: 50px;
 }

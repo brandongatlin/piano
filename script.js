@@ -1,6 +1,7 @@
 let soundArray = ['sounds/a1.wav', 'sounds/a1s.wav', 'sounds/b1.wav', 'sounds/c1.wav', 'sounds/c1s.wav', 'sounds/d1.wav', 'sounds/e1.wav', 'sounds/f1.wav', 'sounds/f1s.wav', 'sounds/g1.wav', 'sounds/g1s.wav', 'sounds/c2.wav', 'sounds/d1s.wav'];
 
 let randomKey;
+let score = 0;
 
 $(".next").on("click", function(){
   randomKey = soundArray[Math.floor(Math.random() * soundArray.length)];
@@ -25,6 +26,8 @@ $(".key").on("click", function(){
 
   if(randomKey === clickedVal) {
     $("#message").html('<li>yeah!!!</li>')
+    score++
+    $("#score").text(score);
   } else {
     $("#message").html('<li>noooooope!</li>')
   }

@@ -15,6 +15,7 @@ $(".next").on("click", function(){
 })
 
 $(".key").on("click", function(){
+  $(this).addClass('clicked');
   let key = $(this).attr('src')
 
   mySound = new Audio(key);

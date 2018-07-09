@@ -36,22 +36,24 @@
   z-index: 2;
 }
 
+.key {
+  border: .2em solid black;
+}
+
 .key:hover {
   background-color: pink;
 }
 
 .key:active {
-  background-color: blue;
+  border: .1em solid black;
 }
 
 .ivory {
-  border: .1em solid black;
   height: 16em;
   width: 1fr;
 }
 
 .ebony {
-  border: .1em solid black;
   background-color: black;
   height: 10em;
   width: 50px;

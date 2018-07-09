@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "info" "piano";
+}
+
+#info {
+  grid-area: info;
+  height: 50px;
+}
+
+#piano {
+  grid-area: piano;
+}
+
+#ivories {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 50vw;
+  z-index: 1
+}
+
+#ebonies {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 44vw;
+  position: fixed;
+  top: 50px;
+  left: 60px;
+  z-index: 2;
+}
+
+.ivory {
+  border: .1em solid black;
+  height: 16em;
+  width: 1fr;
+}
+
+.ebony {
+  border: .1em solid black;
+  background-color: red;
+  height: 10em;
+  width: 50px;
+}
+
+.hidden {
+  visibility: hidden;
+}
